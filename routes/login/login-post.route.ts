@@ -22,7 +22,7 @@ export const swPostUser = {
       }
     }
   }
-  export default async (req, res) => {
+  export default async (req: any, res: any) => {
     try {
       await joiSchema.validateAsync(req.body)
       res.send('This is a login POST service')

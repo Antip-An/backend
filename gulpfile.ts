@@ -13,7 +13,7 @@ function path(str: string) : string
 }
 gulp.task('schema', () => {
   return gulp.src(routes)
-    .pipe(through.obj((chunk, enc, cb) => {
+    .pipe(through.obj((chunk: any, enc: any, cb: any) => {
       const filename = chunk.path
       import(filename).then(schema => { // dynamic import
         console.log('Converting', filename)

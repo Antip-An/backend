@@ -12,10 +12,10 @@ export const swLoginRouter = {
   }
 }
 const router = express()
-router.get('/', function (req, res) {
+router.get('/', function (req: any, res: any){
   getUsersList(req, res)
 })
-router.post('/', function (req, res) {
+router.post('/', function (req: any, res: any) {
   createTheUser(req, res)
 })
 export default router

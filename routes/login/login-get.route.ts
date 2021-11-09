@@ -11,6 +11,6 @@ export const swGetUser = {
     }
   }
   // the route
-  export default async (req, res) => {
+  export default async (req: any, res: any) => {
     res.send('This is a login GET service')
   }
