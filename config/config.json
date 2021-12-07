@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "postgres", 
-    "password": "d8c72Ab",
-    "database": "OnTheNeedle",
+    "password": "12345",
+    "database": "tattoo_studio",
     "host": "localhost",
     "dialect": "postgres"
   },

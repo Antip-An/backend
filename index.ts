@@ -21,8 +21,8 @@ const port = 3001
 
 server.listen(port, hostname, async () => {
   console.log(`Server running at http://${hostname}:${port}/api-docs`)
-  // await sequelize.sync()
-  await sequelize.authenticate()
+  await sequelize.sync()
+  //await sequelize.authenticate()
   console.log("Database connected successfully")
 })
 app.use(ServiceRouter)
