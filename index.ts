@@ -1,6 +1,7 @@
 import loginRouter from './routes/login'
 import swDocument from './swagger.def'
 import { ServiceRouter } from './routes/service.route'
+import { authRouter } from './routes/auth.route'
 const {sequelize} = require('./models')
 
 const express = require('express'),
@@ -25,11 +26,5 @@ server.listen(port, hostname, async () => {
   //await sequelize.authenticate()
   console.log("Database connected successfully")
 })
-app.use(ServiceRouter)
+app.use(ServiceRouter, authRouter)
 
-
-//! TEST HTTP 
-app.post("/test", async (req: any, res: any) => {
-  console.log("Test completed")
-  console.log(req.body)
-})
