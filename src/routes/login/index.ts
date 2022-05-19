@@ -2,7 +2,7 @@ import getUsersList, {swGetUser} from './login-get.route'
 import createTheUser, {swPostUser} from './login-post.route'
 const express = require('express')
 export const swLoginRouter = {
-  "/login": {
+  "/api/login": {
     "get": {
       ...swGetUser
     },

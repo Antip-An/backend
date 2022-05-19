@@ -12,14 +12,15 @@ module.exports = function (req, res, next) {
       if (!token) {
          return res.status(403).json({message: "Пользователь не авторизован"})
       }
+      console.log(req.headers.authorization)
 
-      const decodedData = jwt.verify(token, process.env.AUTH_KEY)
+      const decodedData = jwt.verify(token, process.env.KEY)
       
       req.user = decodedData
-      
+      console.log(req.user)
       next()
    } catch (err) {
       console.log(err)
-      return res.status(403).json({message: "Пользователь не авторизован"})
+      return res.status(503).json({message: "Server Error"})
    }
 }
