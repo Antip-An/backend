@@ -2,6 +2,7 @@ import loginRouter from './routes/login'
 import swDocument from './swagger.def'
 import { ServiceRouter } from './routes/service.route'
 import { authRouter } from './routes/auth.route'
+import { UserRouter } from './routes/user.router'
 const {sequelize} = require('./models')
 
 const express = require('express'),
@@ -14,17 +15,16 @@ const app = express()
 app.use(bodyParser)
 app.use(express.json())
 app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(swDocument))
-app.use('/login', loginRouter)
+app.use('/api', loginRouter, UserRouter, ServiceRouter, authRouter)
+
 
 const server = http.createServer(app)
 const hostname = '0.0.0.0'
-const port = 3001
+const port = 8080
 
 server.listen(port, hostname, async () => {
   console.log(`Server running at http://${hostname}:${port}/api-docs`)
-  await sequelize.sync()
-  //await sequelize.authenticate()
+  await sequelize.authenticate()
   console.log("Database connected successfully")
 })
-app.use(ServiceRouter, authRouter)
 
